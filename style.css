@@ -86,7 +86,8 @@ body{
 }
 /* !HERO SECTION    */
 .hero{
-    background: linear-gradient(to right, rgba(0,0,0, 0.4), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/5841845/pexels-photo-5841845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    /* background: linear-gradient(to right, rgba(0,0,0, 0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/5841845/pexels-photo-5841845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
+    background: linear-gradient(to right, rgba(0,0,0, 0.4), rgba(0,0,0,0.4)), url('./images/pexels-alex-knight-2599244.jpg  ');
     height: 100vh;
     background-position: center;
     background-size: cover;
@@ -101,7 +102,7 @@ body{
     line-height: 1;
 }
 .hero__content h1{
-    font-size: clamp(1rem, 4vw, 4rem);
+    font-size: clamp(1rem, 4vw, 2.5rem);
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
@@ -237,6 +238,25 @@ body{
 }
 .lista{
     margin-left: 3rem;
+}
+.box{
+    font-weight: bold;
+    border-style:solid;
+    border-color: #002f6cb2;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.pblue{
+    color: var(--blue);
+}
+.pred{
+    color:red;
 }
 @media screen and (max-width: 768px){
     .requerimientos__container{

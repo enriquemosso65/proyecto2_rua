@@ -27,7 +27,7 @@
                         <li><a href="#obj">OBJETIVO</a></li>
                         <li><a href="#intro">INTRODUCCION</a></li>
                         <li><a href="#def">DEFINICION DEL PROBLEMA</a></li>
-                        <li><a href="#req">REQUERIMIENTOS</a></li>
+                        <!-- <li><a href="#req">REQUERIMIENTOS</a></li> -->
                         <li><a href="#pro">PROCEDIMIENTO</a></li>
                         <li><a href="#cues">CUESTIONARIO</a></li>
                         <li><a href="#conc">REFLEXIONES Y CONCLUSIONES</a></li>
@@ -158,7 +158,10 @@
                         <br>
                         <br>
                         <p>1.- Como parte de este proyecto se te proporciona un archivo csv que contiene 1000 registros de compra, indexados del 0 al 999. Cada registro contiene la edad (en años), la temperatura del momento en que se hizo la compra (en °C) y el tipo de bebida solicitada (0 es para frío, 1 es para caliente). Lee los datos del archivo y almacénalos en una estructura de datos dentro de tu programa (por ejemplo, en un arreglo). Imprime en pantalla los datos de las primeras cinco compras y de las últimas cinco compras. </p>
-                        <br>
+                        <div style="display: flex; text-align: center; justify-content: center;">
+                            <a href="./csv/bebidas.csv" download ><i class="material-icons  " style="font-size: 50px; color: rgb(0, 113, 57)">download_for_offline </i></a>
+                        </div>
+                        <br> 
                         <p>Ejemplo.- en lenguaje Python este punto se puede resolver fácilmente utilizando Pandas para almacenar los datos en una tabla, tal y como se muestra en la siguiente figura.</p>
                             <br>
                             <code_example title="CÓDIGO FUENTE" lang="py">
@@ -1048,11 +1051,12 @@
                         <p>Una pista para verificar si tus resultados son correctos es la siguiente: si sumas el resultado obtenido en todos los renglones donde Z=fría debes obtener como resultado 1. De igual forma, si sumas el resultado obtenido en todos los renglones donde Z=caliente debes obtener también como resultado 1. Esto implica que si sumas todos los resultados de la última columna, obtendrás como resultado 2. </p>
                         <br>
                         <p>8.- Con todas las tablas de probabilidad calculadas (y que deben estar almacenadas en tu programa de alguna forma) es momento de dar el paso final y construir el clasificador bayesiano que decidirá qué bebida ofrecer al cliente. El programa pregunta al usuario los datos del nuevo cliente (ya categorizados), y debe decidir qué tipo de bebida recomendar. La interfaz debe ser OBLIGATORIAMENTE de esta forma (lo que está en azul es lo que escribe la computadora, y lo que está en rojo es lo que escribe el usuario).</p>
-                        <p style="border-style:double; border-color: black;">Nuevo cliente
-                            Edad: mayor
-                            Temperatura del día: frío
-                            La sugerencia es una bebida: caliente
-                        </p>
+                        <div class="box">
+                            <p class="pblue">Nuevo cliente  </p>
+                            <p class="pblue" >Edad: <span class="pred">mayor</span></p>
+                            <p class="pblue">Temperatura del día: <span class="pred">frío</span></p>
+                            <p class="pblue" >La sugerencia es una bebida: caliente</p>
+                        </div>
                         <p>La sugerencia mostrada es resultado de aplicar un clasificador ingenuo de Bayes. A continuación, se presenta un par de ejemplos sobre cómo se realizan los cálculos del clasificador.</p>
                         <br>
                         <br>
