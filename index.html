@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones de las derivadas parciales</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./hl.css">
+    <link rel="stylesheet" href="./game.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+</head>
+<body>
+        <header id="header" class="header">
+            <nav class="navbar">
+                <a href="/" class="navbar__logo">
+                    <img src="./images/unam.png" alt="">
+                </a>
+                <p> Proyecto <br>
+                    UNAM-DGAPA-PAPIME <br>
+                    PE107420
+                </p>
+                <div id="toggle"></div>
+                <div id="sidebar">
+                    <ul>
+                        <li><a href="#obj">OBJETIVO</a></li>
+                        <li><a href="#intro">INTRODUCCION</a></li>
+                        <li><a href="#def">DEFINICION DEL PROBLEMA</a></li>
+                        <li><a href="#req">REQUERIMIENTOS</a></li>
+                        <li><a href="#pro">PROCEDIMIENTO</a></li>
+                        <li><a href="#cues">CUESTIONARIO</a></li>
+                        <li><a href="#conc">REFLEXIONES Y CONCLUSIONES</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="_progress"></div>
+         
+            <!-- hero section -->
+            <div class="hero">
+                <div class="hero__content">
+                    <h1>Aplicación de modelos matemáticos en Inteligencia Artificial y Robótica: casos prácticos para la enseñanza de las matemáticas en ingeniería en computación.</h1>
+                    <p> </p>
+                    <a href="#obj" class="button">Comenzar</a>
+                </div>
+            </div>
+            <!-- Table -->
+            <div class="tabla">
+                <div class="tabla__container">
+                    <div>
+                        <p class="topline">Asignatura relacionada</p> <br>
+                    </div>
+                    <div>
+                        <p class="text__table">Probabilidad y Estadística</p> <br>
+                    </div>
+                    <div>
+                        <p class="topline">Semestre </p> <br>
+                    </div>
+                    <div>
+                        <p class="text__table">	Cuarto semestre</p><br>
+                    </div>
+                    <div>
+                        <p class="topline">Tema relacionado	</p> <br>
+                    </div>
+                    <div>
+                            <p class="text__table" style="text-align: left;"><b> Plan 1279</b> <br> <br>
+                                3. Teoría elemental de la probabilidad <br><br>
+                                3.3 Probabilidad condicional. Independencia de eventos. Probabilidad total. Teorema de Bayes. <br><br>
+                            </p> <br>
+                            <p class="text__table" style="text-align: left;"> <b>Plan 2119</b> <br> <br>
+                                2. Teoría elemental de la probabilidad. <br><br>
+                                2.3 Probabilidad condicional. Independencia de eventos. Probabilidad total. Teorema de Bayes. <br><br>
+                            </p> <br><br>
+                    </div>
+                    <div>
+                        <p class="topline">Nombre del caso práctico	</p>  
+                    </div>
+                    <div>
+                        <p class="text__table">Aplicaciones del Teorema de Bayes en Aprendizaje de Máquinas: creación de un sistema de recomendaciones.</p><br>
+                    </div>
+                    <div>
+                        <br>
+                        <p class="topline"> Trabajo realizado con el apoyo del Programa UNAM-DGAPA-PAPIME PE107420	</p>
+                    </div>
+                </div>
+                <hr id="thread3" class="right">
+            </div>
+            <!-- objetivos -->
+            <div class="objetivos" id="obj">
+                <div class="objetivos__container">
+                    <div>
+                        <h1 class="objetivos__heading">Objetivo</h1>
+                    </div>
+                    <div  class="text__cont">
+                        <p>
+                            Diseñar un clasificador bayesiano ingenuo que permita predecir el comportamiento de un cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Introduccion -->
+            <div class="contenedor-central" id="intro">
+                <h1> Introducción</h1>
+                <div>
+                    <div class=" text__intro">
+                        <p>Redacta tu introducción contestando a las siguientes preguntas</p>
+                        <p>1. ¿Qué es un sistema de recomendación?</p>    
+                        <p>2. Menciona al menos 5 ejemplos de sistemas de recomendación presentes en tu vida cotidiana.</p>     
+                        <p>3. ¿Qué es el aprendizaje de máquinas?</p>     
+                        <p>4. ¿Qué papel juegan la probabilidad y la estadística en los sistemas de recomendación?</p>     
+                        <p>5. Explica a detalle el teorema de Bayes.</p>     
+                        <p>6. ¿Qué es un clasificador bayesiano ingenuo?</p>     
+                        <p>Esta sección deben ser mínimo 3 cuartillas con tus palabras o citando correctamente las fuentes si se requiere. Puedes usar fuentes en línea, pero no es válido hacer “copiar y pegar”.</p>     
+                    </div>
+                </div>
+            </div>
+            <!-- Definicion del problema -->
+            <div class="contenedor-central " style="background-color: #A89469;" id="def" >
+                <h1> Definición del Problema</h1>
+                <div>
+                    <div class=" text__intro" style="text-align: justify;  ">
+                        <p>En una cafetería se instala un robot que atenderá a los clientes. Se desea que el robot tenga iniciativa al atender al cliente, y recomiende productos antes de que se lo soliciten. El robot cuenta con un sistema de visión que le permite calcular la edad aproximada del cliente y cuenta con acceso a la web para saber la temperatura actual. A partir de la edad del cliente, y de la temperatura del día, el robot le recomendará una bebida fría o una bebida caliente. </p>
+                        <br>
+                        <p>¿Cómo va a tomar esta decisión el robot? Es aquí donde entra la probabilidad y estadística. El robot contará con datos previos sobre compras realizadas. En cada compra se registró la edad del cliente, la temperatura del día, y el tipo de bebida que compró (fría o caliente). Estos datos se encuentran en un archivo de texto y servirán para que el robot aprenda lo que debe hacer cuando llegue un nuevo cliente. Este aprendizaje lo haremos con un algoritmo bastante sencillo que se conoce como clasificador ingenuo de Bayes, y que consiste en calcular probabilidades condicionales con ayuda de la regla de Bayes.  </p>
+                        <br>
+                        <p>En este caso, nuestras variables predictoras serán la edad del cliente y la temperatura del día. Se dice que el método que usaremos es ingenuo, porque utiliza la hipótesis de que estas variables predictoras son independientes entre sí. A partir de estas variables el robot debe predecir el tipo de bebida adecuado para el cliente. </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Requerimientos -->
+            <!-- <div class="requerimientos" id="req">
+                <div class="requerimientos__container">
+                    <div>
+                        <h1 class="requerimientos__heading">Requerimientos</h1>
+                    </div>
+                    <div class="text__cont">
+                                <p>1.- Como primer paso, necesitas instalar un IDE que te permita trabajar con lenguaje Python. Se recomienda utilizar Jupyter <a href="https://jupyter.org/try">https://jupyter.org/try </a> . En este documento, las capturas de pantalla muestran la programación realizada en Jupyter.   </p> <br>
+                                <p>2.- También necesitas una imagen en formato jpg, la cual deberá tener el nombre imagen.jpg. </p>
+                    </div>
+                </div>
+                <hr id="thread3" class="right">
+            </div> -->
+            <!-- Procedimiento -->
+            <div class="contenedor-central " style="background-color:  #fff; color: rgb(36, 36, 36);"  id="pro">
+                <h1> Procedimiento</h1>
+                <div>
+                    <div class=" text__intro" >
+                        <p>Desarrolla los siguientes puntos en el lenguaje de programación que quieras. En el reporte, muestra el segmento de código asociado a cada uno de los siguientes incisos, acompañado con una captura de pantalla que muestre el resultado obtenido. Como ejemplo, se muestran algunas partes de este proyecto implementadas en lenguaje Python, que te pueden servir como una guía de implementación. Sin embargo, siéntete libre de hacer el código a tu estilo y en el lenguaje de programación de tu preferencia.  </p>
+                        <br>
+                        <!-- <div class="contenedor_img ">
+                            <div class="image-box">
+                                <img src="./images/proyecto3/imagen.jpg" title="" alt="">
+                                <div class="text-box">
+                                    <a href="./images/proyecto3/imagen.jpg" download ><i class="material-icons  ">download_for_offline </i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <br>
+                        <br>
+                        <p>1.- Como parte de este proyecto se te proporciona un archivo csv que contiene 1000 registros de compra, indexados del 0 al 999. Cada registro contiene la edad (en años), la temperatura del momento en que se hizo la compra (en °C) y el tipo de bebida solicitada (0 es para frío, 1 es para caliente). Lee los datos del archivo y almacénalos en una estructura de datos dentro de tu programa (por ejemplo, en un arreglo). Imprime en pantalla los datos de las primeras cinco compras y de las últimas cinco compras. </p>
+                        <br>
+                        <p>Ejemplo.- en lenguaje Python este punto se puede resolver fácilmente utilizando Pandas para almacenar los datos en una tabla, tal y como se muestra en la siguiente figura.</p>
+                            <br>
+                            <code_example title="CÓDIGO FUENTE" lang="py">
+                                import 
+                            </code_example>
+                            <br>
+                            <div class="contenedor_img ">
+                                <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                            </div>
+                        <p>2.- Mediante tu lenguaje de programación, genera el diagrama de dispersión de los datos. Observa la gráfica y contesta: ¿puedes identificar algún patrón en la decisión de consumir bebidas frías o calientes dependiendo de la edad o de la temperatura del día? </p>
+                        <br>
+                        <p>Ejemplo. - en lenguaje Python puedes generar de manera muy sencilla el diagrama de dispersión con ayuda de Seaborn.</p>
+                        <br>
+                        <code_example title="CÓDIGO FUENTE" lang="py">
+                            import
+                        </code_example>
+                        <div class="contenedor_img ">
+                            <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                        </div>
+                        <br>
+                        <p>3.- Crea una nueva tabla con los datos categorizados de esta manera. </p>
+                        <p>Edades:</p>
+                        <div class="lista"> 
+                            <p>• menor. - si la edad es menor que 18 años. </p>
+                            <p>• adulto. - si la edad es mayor o igual a 18 años, y menor que 60 años. </p>
+                            <p>• mayor. - si la edad es mayor o igual a 60 años. </p>
+                        </div >
+                        <p>Temperatura:</p>
+                        <div class="lista">
+                            <p>• frío. - si la temperatura es menor o igual a 10°C</p>
+                            <p>• templado. – si la temperatura es mayor a 10°C y menor a 20°C</p>
+                            <p>• cálido. - si la temperatura es mayor o igual a 20°C</p>
+                        </div>
+                        <p>Tipo de bebida:</p>
+                        <div class="lista">
+                            <p>• fría</p>
+                            <p>• caliente</p>
+                        </div>
+                        <p>De tu nueva tabla categorizada, imprime en pantalla los datos de las primeras cinco compras y de las últimas cinco compras.</p>
+                        <br>
+                        <p>Ejemplo. – se muestra cómo realizar esta categorización utilizando lenguaje Python. En la primera parte del código se categorizan las edades y se muestra la tabla resultante. Posteriormente se categoriza la temperatura y se muestra la tabla resultante. Notar que el tipo de bebida ya es un dato categórico, por lo que no se tiene que realizar nada al respecto.</p>    
+                        <br>
+                        <code_example title="CÓDIGO FUENTE" lang="py">
+                            #Número de observaciones
+                        </code_example>
+                        <div class="contenedor_img ">
+                            <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                        </div>
+                        <br> 
+                        <br>
+                        <code_example title="CÓDIGO FUENTE" lang="py">
+                            #Categorizacion
+                        </code_example>
+                        <div class="contenedor_img ">
+                            <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                        </div>
+                        <br>
+                        <p>4.- En este momento resulta importante poner en claro lo que queremos calcular. Usaremos tres variables aleatorias: X para la edad, Y para la temperatura y Z para el tipo de bebida. Cuando un cliente llega con el robot, por observación se obtiene el valor de X y Y, mismas que servirán para predecir el valor de Z.</p>
+                        <p>Entonces, lo que el robot debe calcular es la probabilidad de que la persona vaya a solicitar una bebida del tipo Z dado que conoce los valores de X y Y. Es decir, se calcula:</p>
+                        <p class="formula">
+                            \[P(Z|X \cap\ Y)  \]
+                        </p>
+                        <p>Pongamos un ejemplo concreto. Imaginemos que llega un nuevo cliente. El robot observa que se trata de un adulto mayor y que la temperatura del día es fría. Entonces el robot sabe que 𝑋=𝑚𝑎𝑦𝑜𝑟, y que 𝑌=𝑓𝑟í𝑜. Dadas estas observaciones, el robot debe anticipar lo que es más probable que pida el usuario.</p>
+                        <p>Conociendo que el cliente es un adulto mayor y que se trata de un día frío, ¿es más probable que el cliente pida una bebida fría o una caliente? Entonces debemos de calcular ambas probabilidades:</p>
+                        <!-- <p class="formula">
+                            \[P(Z=fría|X = mayor,Y=frío) = {P(Z=fría)P(X=mayor, Y=frío|Z=fría)\over P(x=mayor, Y = frío)}.\]
+                        </p> -->
+                        <p class="formula">
+                            \[P(Z=fría|X = mayor \cap\  Y=frío)  \]
+                        </p>   
+                        <p class="formula">
+                            \[P(Z=caliente|X = mayor \cap\  Y=frío)  \]
+                        </p>                      
+                        <p>El robot elige la mejor opción para ofrecer (bebida fría o bebida caliente) dependiendo de cuál de las probabilidades anteriores es mayor (elige la probabilidad más grande). Es decir:</p>
+                        <p class="formula"> 
+                            \[Sugerencia = argmax_{i \in \{fría,caliente\}}{P(Z= i|X = mayor \cap\  Y=frío) }\]
+                        </p>
+                        <p>Esta última línea es el clasificador bayesiano ingenuo para este problema, que acabará regresando como respuesta una sugerencia, que puede tomar alguno de los valores del conjunto {𝑓𝑟í𝑎,𝑐𝑎𝑙𝑖𝑒𝑛𝑡𝑒} y que corresponde al argumento que genera el mayor resultado al sustituir 𝑖 en la expresión 𝑃(𝑍=𝑖|𝑋=𝑚𝑎𝑦𝑜𝑟∩𝑌=𝑓𝑟í𝑜).</p>
+                        <p>El reto ahora es cómo calcular estas probabilidades condicionales. Para ello, utilizaremos el teorema de Bayes.</p>
+                        <p class="formula">
+                            \[P(Z|X \cap Y) = {P(Z)P(X \cap Y|Z)\over P(X \cap Y)}\]
+                        </p>
+                        <br>
+                        <p>5.- Empezaremos calculando la distribución de Z, que es la probabilidad a priori. Esto corresponde a la probabilidad de que un cliente solicite una bebida del tipo Z (sin tomar en cuenta la información sobre la edad de la persona o la temperatura del día). Esta distribución la obtenemos contando a partir de nuestros datos.</p>
+                        <p class="formula">
+                            \[P(Z= fría) = {\#clientes\ que\ compraron\ bebida\ fría \over \#\ clientes}\]
+                        </p>
+                        <p class="formula">
+                            \[P(Z= caliente) = {\#clientes\ que\ compraron\ bebida\ caliente \over \#\ clientes}\]
+                        </p>
+                        <p>Ejemplo. - A continuación, se muestra cómo calcular la distribución de Z con ayuda de Python.</p>
+                        <code_example title="CÓDIGO FUENTE" lang="py">
+                            #calculo z
+                        </code_example>
+                        <p>resultado!!!</p>
+                        <p>Como resultado, tenemos la distribución de Z, que corresponde a la probabilidad a priori.</p>   
+                        <br>
+                        <br>
+                        <p>Distribución de probabilidad de Z</p>
+                        <p>TABLA!!!</p>
+                        <br>
+                        <p>6.- Ahora calcularemos la distribución conjunta 𝑃(𝑋∩𝑌), que dentro de la fórmula de Bayes de este proyecto corresponde a la evidencia.</p>
+                        <p>De nueva cuenta, podemos calcular esta distribución contando. Por ejemplo:</p>
+                        <p class="formula">
+                            \[P(X = mayor \cap Y = frío) = {\#clientes\ que\ son\ adultos\ mayores\ y\ compraron\ en\ día\ frio\ \over \#\ clientes}\]
+                        </p>
+                        <p>Ejemplo. - A continuación, se muestra cómo calcular la distribución conjunta de X y Y con ayuda de Python:</p>
+                        <code_example title="CÓDIGO FUENTE" lang="py">
+                            #calculo x y
+                        </code_example>
+                        <p>resultao!!!</p>
+                        <br>
+                        <p>Distribución conjunta de X y Y</p>
+                        <p>TABLA!!!</p>
+                        <br>
+                        <p>7.- Ahora calcularemos el término 𝑃(𝑋∩𝑌|𝑍), que corresponde al likelihood o verosimilitud.</p>
+                        <p>Recordando la definición de probabilidad condicional, tenemos que 𝑃(𝐴|𝐵)=𝑃(𝐴∩𝐵)𝑃(𝐵).</p>
+                        <p>Por lo tanto,</p>
+                        <p class="formula">
+                            \[P(X \cap Y| Z) = {P(X \cap Y \cap Z)\over P(Z)}\]
+                        </p>
+                        <p>Entonces, será de utilidad calcular la distribución conjunta 𝑃(𝑋∩𝑌∩𝑍), la cual podemos obtener contando a partir de los datos.</p>
+                        <br>
+                        <p>Ejemplo:</p>
+                        <p class="formula">
+                            \[P(X = mayor \cap Y = frío \cap Z = fría) = {\#\ clientes\ que\ son\ adultos\ mayores\ y\ compraron\ en\ un\ día\ frío\ y\ compraron\ bebida\ fría\ \over \#\ clientes }\]
+                        </p>
+                        <p class="formula">
+                            \[P(X = mayor \cap Y = frío \cap Z = caliente) = {\#\ clientes\ que\ son\ adultos\ mayores\ y\ compraron\ en\ un\ día\ frío\ y\ compraron\ bebida\ caliente\ \over \#\ clientes }\]
+                        </p>                         
+                        <br>
+                        <p>Utiliza tu lenguaje de programación para realizar el cálculo de la distribución conjunta 𝑃(𝑋∩𝑌∩𝑍) y completa la siguiente tabla. Algunos valores ya vienen calculados para que puedas verificar si estás realizando el procedimiento de manera correcta.</p>
+                        <br>
+                        <p>Distribución conjunta de X y Y y Z</p>
+                        <p>TABLAAAA!</p>
+                        <p>Pista: para verificar que tu cálculo es correcto, recuerda que la suma de todos los valores de la última columna debe ser igual a 1.</p>
+                        <p> En este momento, podemos calcular el likelihood utilizando los resultados que tenemos en nuestra tabla de Distribución conjunta de X y Y y Z y en la tabla de Distribución de probabilidad de Z.</p>
+                        <p>Ejemplos:</p>
+                        <br>
+                        <p class="formula">
+                            \[P(X = menor \cap Y = cálido| Z = fría) = {P(X = menor \cap Y = cálido \cap Z = fría)\over P(Z = fría)}\]
+                        </p>
+                        <p class="formula">
+                            \[ = {0.027 \over 0.339} = 0.0796 \]
+                        </p>
+                        <p class="formula">
+                            \[P(X = menor \cap Y = cálido| Z = caliente) = {P(X = menor \cap Y = cálido \cap Z = caliente)\over P(Z = caliente)}\]
+                        </p>
+                        <p class="formula">
+                            \[ = {0.001 \over 0.661} = 0.0015 \]
+                        </p>
+                        <br>
+                        <p>Utiliza tu lenguaje de programación para realizar el cálculo del likelihood 𝑃(𝑋∩𝑌|𝑍) y completa la siguiente tabla. Algunos valores ya vienen calculados para que puedas verificar si estas realizando el procedimiento de manera correcta.</p>
+                        <br>
+                        <p>Likelihood o verosimilitud</p>
+                        <p>TABLA!!!</p>
+                        <p>Una pista para verificar si tus resultados son correctos es la siguiente: si sumas el resultado obtenido en todos los renglones donde Z=fría debes obtener como resultado 1. De igual forma, si sumas el resultado obtenido en todos los renglones donde Z=caliente debes obtener también como resultado 1. Esto implica que si sumas todos los resultados de la última columna, obtendrás como resultado 2. </p>
+                        <br>
+                        <p>8.- Con todas las tablas de probabilidad calculadas (y que deben estar almacenadas en tu programa de alguna forma) es momento de dar el paso final y construir el clasificador bayesiano que decidirá qué bebida ofrecer al cliente. El programa pregunta al usuario los datos del nuevo cliente (ya categorizados), y debe decidir qué tipo de bebida recomendar. La interfaz debe ser OBLIGATORIAMENTE de esta forma (lo que está en azul es lo que escribe la computadora, y lo que está en rojo es lo que escribe el usuario).</p>
+                        <p style="border-style:double; border-color: black;">Nuevo cliente
+                            Edad: mayor
+                            Temperatura del día: frío
+                            La sugerencia es una bebida: caliente
+                        </p>
+                        <p>La sugerencia mostrada es resultado de aplicar un clasificador ingenuo de Bayes. A continuación, se presenta un par de ejemplos sobre cómo se realizan los cálculos del clasificador.</p>
+                        <br>
+                        <br>
+                        <p>Ejemplo 1</p>
+                        <p>Suponer que los datos ingresados son 𝑋=𝑚𝑎𝑦𝑜𝑟,𝑌=𝑓𝑟í𝑜.</p>
+                        <p>Se tiene que calcular utilizando el teorema de Bayes:</p>
+                        <p class="formula">
+                            \[P(Z=fría|X = mayor \cap\  Y=frío)  \]
+                        </p>
+                        <p class="formula">
+                            \[P(Z=caliente|X = mayor \cap\  Y=frío)  \]
+                        </p>
+                        <p>Por fortuna, todos los datos requeridos ya se encuentran en nuestras tablas:</p>
+                        <p class="formula">
+                            \[P(Z=fría|X = mayor \cap\  Y=frío) = {P(Z=fría)P(X = mayor \cap Y = frío | Z = fría)\over P(X = mayor \cap Y = frío)}\]
+                        </p>
+                        <p class="formula">
+                            \[ = {(0.339)(0.0235) \over 0.077} = 0.1034 \]
+                        </p>
+                        <p class="formula">
+                            \[P(Z=caliente|X = mayor \cap\  Y=frío) = {P(Z=caliente)P(X = mayor \cap Y = frío | Z = caliente)\over P(X = mayor \cap Y = frío)}\]
+                        </p>
+                        <p class="formula">
+                            \[ = {(0.661)(0.1043) \over 0.077} = 0.8953 \]
+                        </p>
+                        <p>Con Z=fría se obtiene 0.1034. Con Z=caliente se obtiene 0.8953. Se elige el valor de Z que da el máximo resultado. Por lo tanto, la sugerencia debe ser una bebida caliente.</p>
+                        <br>
+                        <p>Ejemplo 2</p>
+                        <p>Suponer que los datos ingresados son 𝑋=𝑚𝑒𝑛𝑜𝑟,𝑌=𝑐á𝑙𝑖𝑑𝑜.</p>
+                        <p>Se tiene que calcular utilizando el teorema de Bayes:</p>
+                        <p class="formula">
+                            \[P(Z=fría|X = menor \cap\  Y=cálido)  \]
+                        </p>
+                        <p class="formula">
+                            \[P(Z=caliente|X = menor \cap\  Y=cálido)  \]
+                        </p>
+                        <p>Por fortuna, todos los datos requeridos también se encuentran en nuestras tablas:</p>
+                        <p class="formula">
+                            \[P(Z=fría|X = menor \cap\  Y=cálido) = {P(Z=fría)P(X = menor \cap Y = cálido | Z = fría)\over P(X = menor \cap Y = cálido)}\]
+                        </p>
+                        <p class="formula">
+                            \[ = {(0.339)(0.0796) \over 0.028} = 0.9637 \]
+                        </p>
+                        <p class="formula">
+                            \[P(Z=caliente|X = menor \cap\  Y=cálido) = {P(Z=caliente)P(X = menor \cap Y = cálido | Z = caliente)\over P(X = menor \cap Y = cálido)}\]
+                        </p>
+                        <p class="formula">
+                            \[ = {(0.661)(0.0015) \over 0.028} = 0.0354 \]
+                        </p>
+                        <p>Con Z=fría se obtiene 0.9637. Con Z=caliente se obtiene 0.0354. Se elige el valor de Z que da el máximo resultado. Por lo tanto, la sugerencia debe ser una bebida fría.</p>
+                        <br>
+                        <br>
+                        <p>Prueba tu sistema para los diferentes valores de X y Y. Completa la siguiente tabla indicando el tipo de bebida que sugiere el robot.</p>
+                        <p>TABLAAAA</p>
+                    
+                    
+                    
+                    
+                    
+                    </div>
+                </div>
+                <hr id="thread3" class="right">
+            </div>
+            <!-- cuestionario -->
+            <div>
+                <div class="title__cuestion" id="cues">
+                    <h1>Cuestionario</h1>
+                </div>
+                <div class="container3" id="divi">
+                    <div id="game" class="games"> 
+                        <div id="hud">
+                            <div class="hud-item">
+                                <p id="progressText" class="hud-prefix">
+                                    Pregunta
+                                </p>
+                                <div id="progressBar">
+                                    <div id="progressBarFull"></div>
+                                </div>
+                            </div>
+                            <div class="hud-item">
+                                <p class="hud-prefix">
+                                    Puntos
+                                </p>
+                                <h1 class="hud-main-text" id="score">
+                                    0
+                                </h1>
+                            </div>
+                        </div>
+                        <h1 id="question">pregunta</h1>
+                        <div class="choice-container">
+                            <p class="choice-prefix">A</p>
+                            <p class="choice-text" data-number="1">respuesta</p>
+                        </div>
+                        <div class="choice-container">
+                            <p class="choice-prefix">B</p>
+                            <p class="choice-text" data-number="2">respuesta 2</p>
+                        </div>
+                        <div class="choice-container">
+                            <p class="choice-prefix">C</p>
+                            <p class="choice-text" data-number="3">respuesta 3</p>
+                        </div>
+                        <div class="choice-container">
+                            <p class="choice-prefix">D</p>
+                            <p class="choice-text" data-number="4">respuesta 4</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="end" class="flex-center flex-column puntuacion">
+                    <form class="end-form-container" id="ending">
+                        <div class="title__cuestion">
+                            <h2>Obtuviste la siguiente puntuación:</h2>
+                        </div>
+                        <h2 id="end-text"> </h2>
+                        <h1 id="finalScore">0 </h1>
+                        <a href="#newtry" onclick="location.reload()" class="btn">Intentar de nuevo</a>
+                    </form>
+                </div>
+            </div>
+            <!-- conclusiones -->
+            <div class="conclusiones" id="conc">
+                <div class="conclusiones__container">
+                    <div>
+                        <h1 class="conclusiones__heading">Reflexiones y conclusiones</h1>
+                    </div>
+                    <div  class="text__cont">
+                            <p> <p>Responde:</p>
+                            <p>1.	¿Cómo podrías medir la utilidad de las predicciones de tu sistema de recomendación?</p> <br>
+                            <p>2.	¿Se podría omitir la fase de categorización y trabajar con distribuciones continuas? ¿Cuáles serían las ventajas y desventajas?</p> <br>
+                            <p>3.	¿Crees que el resultado mejoraría si utilizamos una categorización más fina en ambas variables? Por ejemplo, definir cinco categorías de edades y cinco de temperatura.</p> <br>
+                            <p>4.	Observa detenidamente los ejemplos que acompañan el último paso del procedimiento. ¿Qué pasaría si se omitiera en los cálculos la división entre el valor de la evidencia 𝑃(𝑋∩𝑌)? ¿Afectaría a la predicción resultante? ¿Por qué?</p> <br>
+                            </p>
+                    </div>
+                </div>
+            </div>
+       
+        <!-- footer -->
+        <div class="footer">
+            <div class="footer__wrapper">
+                <div class="footer__desc">
+                    <img src="./images/unam.png" alt="">
+                </div>
+                <div class="footer__links">
+                    <h2 class="footer__title">Encargado del proyecto y diseño de casos </h2>
+                    <a href="" class="footer__link"> Dr. Arturo Rodriguez Garcia</a>
+                </div>
+            </div>
+            <div class="footer__wrapper">
+                <div class="footer__links">
+                    <h2 class="footer__title">Diseño de casos y diseño de la pagina web</h2>
+                    <a href="" class="footer__link"> Jesús Enrique Chimal Mosso</a>
+                </div>
+                <div class="footer__links">
+                    <h2 class="footer__title">Diseño de la pagina web </h2>
+                    <a href="" class="footer__link"> Gonzalo Chávez Onofre </a>
+                </div>
+            </div>
+        </div>
+    <script src="./app.js"></script>
+    <script src="./hl.js"></script>
+    <script src="./game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <!-- <link href="https://browser-tools.lazydb.com/code_example/code_example.css" rel="stylesheet"> -->
+    <!-- <script src="https://browser-tools.lazydb.com/code_example/code_example.js"></script> -->
+</body>
+</html>
