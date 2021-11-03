@@ -182,6 +182,11 @@ body{
     margin-top: 10px;
     margin-bottom: 10px; 
 }
+.imagentab{
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+}
 .text__intro{
     margin-bottom: 3rem;
     font-size: clamp(1rem, 3vw,1rem);

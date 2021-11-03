@@ -36,7 +36,6 @@
             </nav>
         </header>
         <div id="_progress"></div>
-         
             <!-- hero section -->
             <div class="hero">
                 <div class="hero__content">
@@ -163,21 +162,25 @@
                         <p>Ejemplo.- en lenguaje Python este punto se puede resolver fácilmente utilizando Pandas para almacenar los datos en una tabla, tal y como se muestra en la siguiente figura.</p>
                             <br>
                             <code_example title="CÓDIGO FUENTE" lang="py">
-                                import 
+                                import pandas as pd
+
+                                Tabla = pd.read_csv("bebidas.csv", index_col=0)
+                                Tabla
                             </code_example>
                             <br>
                             <div class="contenedor_img ">
-                                <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                                <img src="./images/tabla1.png" class="imagentab"   alt="Imagen-prueba">
                             </div>
                         <p>2.- Mediante tu lenguaje de programación, genera el diagrama de dispersión de los datos. Observa la gráfica y contesta: ¿puedes identificar algún patrón en la decisión de consumir bebidas frías o calientes dependiendo de la edad o de la temperatura del día? </p>
                         <br>
                         <p>Ejemplo. - en lenguaje Python puedes generar de manera muy sencilla el diagrama de dispersión con ayuda de Seaborn.</p>
                         <br>
                         <code_example title="CÓDIGO FUENTE" lang="py">
-                            import
+                            import seaborn as sns
+                            sns.scatterplot(x=Tabla.Edad,y=Tabla.Temperatura,hue=Tabla.Bebida)
                         </code_example>
                         <div class="contenedor_img ">
-                            <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                            <img src="./images/diagramadispersion.png" class="imagen"   alt="Imagen-prueba">
                         </div>
                         <br>
                         <p>3.- Crea una nueva tabla con los datos categorizados de esta manera. </p>
@@ -203,18 +206,46 @@
                         <p>Ejemplo. – se muestra cómo realizar esta categorización utilizando lenguaje Python. En la primera parte del código se categorizan las edades y se muestra la tabla resultante. Posteriormente se categoriza la temperatura y se muestra la tabla resultante. Notar que el tipo de bebida ya es un dato categórico, por lo que no se tiene que realizar nada al respecto.</p>    
                         <br>
                         <code_example title="CÓDIGO FUENTE" lang="py">
-                            #Número de observaciones
+                            # Número de observaciones
+                            n=1000
+
+                            # Categorización de edades en:
+                            # 0 Menores de edad (si la persona tiene menos de 18 años)
+                            # 1 Adultos (a partir de 18 años hasta antesde los 60 cumplidos)
+                            # 2 Adultos mayores (de 60 años en adelante)
+
+                            for i in range(0,n):
+                                if (Tabla.Edad[i]<18):
+                                    Tabla.Edad[i]=0
+                                elif (Tabla.Edad[i]>=18) & (Tabla.Edad[i]<60):
+                                    Tabla.Edad[i]=1
+                                else:
+                                    Tabla.Edad[i]=2
+                                    
+                            Tabla
                         </code_example>
                         <div class="contenedor_img ">
-                            <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                            <img src="./images/tabla2.png" class="imagentab"   alt="Imagen-prueba">
                         </div>
                         <br> 
                         <br>
                         <code_example title="CÓDIGO FUENTE" lang="py">
-                            #Categorizacion
+                            # Categorización de temperaturas en:
+                            # 0 Frío (de 10°C hacia abajo)
+                            # 1 Templado (entre 10°C y 20°C)
+                            # 2 Cálido (de 20°C hacia arriba)
+
+                            for i in range(0,n):
+                                if(Tabla.Temperatura[i]<=10):
+                                    Tabla.Temperatura[i]=0
+                                elif (Tabla.Temperatura[i]>10) & (Tabla.Temperatura[i]<20):
+                                    Tabla.Temperatura[i]=1
+                                else:
+                                    Tabla.Temperatura[i]=2
+                            Tabla
                         </code_example>
                         <div class="contenedor_img ">
-                            <img src="./images/unam.png" class="imagen"   alt="Imagen-prueba">
+                            <img src="./images/tabla3.png" class="imagentab"   alt="Imagen-prueba">
                         </div>
                         <br>
                         <p>4.- En este momento resulta importante poner en claro lo que queremos calcular. Usaremos tres variables aleatorias: X para la edad, Y para la temperatura y Z para el tipo de bebida. Cuando un cliente llega con el robot, por observación se obtiene el valor de X y Y, mismas que servirán para predecir el valor de Z.</p>
@@ -252,9 +283,27 @@
                         </p>
                         <p>Ejemplo. - A continuación, se muestra cómo calcular la distribución de Z con ayuda de Python.</p>
                         <code_example title="CÓDIGO FUENTE" lang="py">
-                            #calculo z
+                            # Cálculo de la distribución de Z
+                            # La distribucion se almacena en una lista, donde la posición 0 corresponde a P(Z=fría) y la posición 1 a P(Z=caliente)
+                            # Recordar que estamos presentando fría con 0, y caliente con 1
+                            # Inicio del conteo en cero
+                            PrioriZ=[0,0]
+
+                            for i in range(0,n):
+                                PrioriZ[Tabla.Bebida[i]]+=1
+
+                            # Muestra el conteo de cuantas bebidas de cada tipo hay
+                            print('Numero de bebidas según su tipo: ', PrioriZ)
+
+                            # Divide entre el número de clientes para obtener la distribución de probabilidad
+                            for i in range(0,2):
+                                PrioriZ[i]/=n
+
+                            print('Distribución de probabilidad de z: ', PrioriZ)
                         </code_example>
-                        <p>resultado!!!</p>
+                        <div class="contenedor_img ">
+                            <img src="./images/resultado-distribucionz.png" class="imagen"   alt="Imagen-prueba">
+                        </div>
                         <p>Como resultado, tenemos la distribución de Z, que corresponde a la probabilidad a priori.</p>   
                         <br>
                         <br>
@@ -268,9 +317,28 @@
                         </p>
                         <p>Ejemplo. - A continuación, se muestra cómo calcular la distribución conjunta de X y Y con ayuda de Python:</p>
                         <code_example title="CÓDIGO FUENTE" lang="py">
-                            #calculo x y
+                            # Cálculo de la distribución conjunta de X y Y
+                            # La distribucion se almacena en una lista de listas (tamaño 3x3)
+                            # El primer índice corresponde a la edad X (0 para menor de edad, 1 para adulto, 2 para adulto mayor)
+                            # El segundo índice corresponde a la temperatura del día Y (0 para frío, 1 para templado, 2 para cálido)
+
+                            EvidenciaXY=[[0,0,0],[0,0,0],[0,0,0]]
+
+                            for i in range(0,n):
+                                EvidenciaXY[Tabla.Edad[i]][Tabla.Temperatura[i]]+=1
+
+                            # Muestra el conteo para cada pareja de valores edad-temperatura
+                            print('Número de compras agrupadas segun edad y temperatura: ', EvidenciaXY)
+
+                            # Divide entre el número de clientes para obtener la distribucion de probabilidad
+                            for i in range(0,3):
+                                for j in range(0,3):
+                                    EvidenciaXY[i][j]/=n
+                            print('Distribución de probabilidad conjunta de X y Y: ', EvidenciaXY)
                         </code_example>
-                        <p>resultao!!!</p>
+                        <div class="contenedor_img ">
+                            <img src="./images/resultadodistribucionxy.png" class="imagen"   alt="Imagen-prueba">
+                        </div>
                         <br>
                         <p>Distribución conjunta de X y Y</p>
                         <p>TABLA!!!</p>
