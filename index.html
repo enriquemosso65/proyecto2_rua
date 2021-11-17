@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./hl.css">
     <link rel="stylesheet" href="./game.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/><link rel="stylesheet" href="./style.css">
 </head>
 <body>
         <header id="header" class="header">
@@ -158,9 +159,23 @@
                         <br>
                         <br>
                         <p>1.- Como parte de este proyecto se te proporciona un archivo csv que contiene 1000 registros de compra, indexados del 0 al 999. Cada registro contiene la edad (en años), la temperatura del momento en que se hizo la compra (en °C) y el tipo de bebida solicitada (0 es para frío, 1 es para caliente). Lee los datos del archivo y almacénalos en una estructura de datos dentro de tu programa (por ejemplo, en un arreglo). Imprime en pantalla los datos de las primeras cinco compras y de las últimas cinco compras. </p>
-                        <div style="display: flex; text-align: center; justify-content: center;">
-                            <a href="./csv/bebidas.csv" download ><i class="material-icons  " style="font-size: 50px; color: rgb(0, 113, 57)">download_for_offline </i></a>
-                        </div>
+                        <!-- <div class="download">
+                            <div class="download__icon">
+                                <a href="./csv/bebidas.csv" download ><i class="material-icons">download_for_offline <span> Descargar archivo .csv </span>  </i> </a>
+                            </div>
+                        </div> -->
+                        <div id="wrap">
+                            <!-- <a href="#" class="btn-slide">
+                                <span class="circle"><i class="fa fa-rocket"></i></span>
+                                <span class="title">Demo</span>
+                                <span class="title-hover">Click here</span>
+                            </a> -->
+                            <a href="./csv/bebidas.csv" download class="btn-slide2">
+                                <span class="circle2"><i class="fa fa-download"></i></span>
+                                <span class="title2">Descargar .csv  </span>
+                                <span class="title-hover2">Click aquí</span>
+                            </a>
+                            </div>
                         <br> 
                         <p>Ejemplo.- en lenguaje Python este punto se puede resolver fácilmente utilizando Pandas para almacenar los datos en una tabla, tal y como se muestra en la siguiente figura.</p>
                             <br>
