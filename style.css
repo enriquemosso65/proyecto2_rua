@@ -14,7 +14,9 @@
 body{
     background-color: var(--white);
 }
-
+html{
+    scroll-behavior: smooth;
+}
 /* !progress indicator */
 #_progress {
     --scroll: 0%;
@@ -223,23 +225,25 @@ body{
     margin-bottom: 1rem;
     font-size: clamp(2rem, 6vw, 3rem); 
 }
-/* .download{
-    border-style: dashed;
-    border-color: #002F6C;
-}
-.download__icon{
-    display: flex; 
-    text-align: center; 
+.img_descripcion{
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
     justify-content: center;
+    font-size: .9rem;
+    margin-bottom: 10px;
 }
-.download__icon a i {
-    font-size: 50px; 
-    color: rgb(0, 113, 57);
-    padding-top: 1rem;
+strong{
+    margin-right: 2px;
 }
-.download__icon a i span {
-    font-size: 1.5rem; color: rgb(0, 113, 57)
-} */
+.tab_descripcion{
+    color: var(--text-color);
+    display: flex;
+    align-items:flex-start;
+    justify-content: left;
+    font-size: .9rem;
+    margin-top: 10px;
+}
 #wrap {
     margin: 20px auto;
     text-align: center;
@@ -328,7 +332,7 @@ body{
 
 .btn-slide2 span.title2,
   .btn-slide2 span.title-hover2 {
-    color: rgb(0, 113, 57)6;
+    color: rgb(0, 113, 57);
     left: 80px;
   }
 
@@ -675,6 +679,8 @@ hr#thread5{
 .containertbl {
     display: block;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 .rwd-table {
     margin: auto;
